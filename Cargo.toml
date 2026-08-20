@@ -1,6 +1,6 @@
 [package]
 name = "sensors-rs"
-version = "0.1.0"
+version = "0.1.2"
 edition = "2021"
 rust-version = "1.70"
 description = "A fast, dependency-free reimplementation of lm-sensors' sensors(1) for macOS and Linux"
