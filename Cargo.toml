@@ -1,0 +1,28 @@
+[package]
+name = "sensors-rs"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+description = "A fast, dependency-free reimplementation of lm-sensors' sensors(1) for macOS and Linux"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/timonviola/sensors.rs"
+repository = "https://github.com/timonviola/sensors.rs"
+documentation = "https://github.com/timonviola/sensors.rs#readme"
+categories = ["command-line-utilities", "hardware-support"]
+keywords = ["sensors", "temperature", "smc", "hwmon", "macos"]
+exclude = ["/.github", "/target", "/packaging", "wezterm.lua.updated"]
+
+[[bin]]
+name = "sensors"
+path = "src/main.rs"
+
+# No dependencies: platform access is done through raw FFI (macOS) and sysfs (Linux).
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
