@@ -178,7 +178,6 @@ fn i2c_adapter(dev: &Path) -> String {
     dev.parent()
         .map(|p| p.join("name"))
         .and_then(|p| read_str(&p))
-        .map(|n| format!("{}", n))
         .unwrap_or_else(|| "I2C adapter".to_string())
 }
 
